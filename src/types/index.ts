@@ -4,6 +4,8 @@ export interface CoverLetterFormData {
   hiringManagerName: string;
   customWhyInterested: string;
   senderName: string;
+  currentWorkplace: string;
+  currentDesignation: string;
 }
 
 export interface CoverLetterTemplate {

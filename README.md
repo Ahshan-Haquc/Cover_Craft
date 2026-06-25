@@ -1,6 +1,6 @@
 # CoverCraft — Cover Letter Generator
 
-A personal Next.js app that lets you generate tailored cover letters in seconds — no database, no backend. Just fill in the fields, pick a template, copy or download as PDF.
+A personal Next.js app that lets you generate tailored cover letters in seconds - no database, no backend. Just fill in the fields, pick a template, copy or download as PDF.
 
 ## Features
 - 3 cover letter templates (Standard, Concise, Technical Depth)
@@ -55,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Customize Your Templates
 
-All templates live in `src/lib/templates.ts`. Each template has a `generate()` function that receives form data and returns the cover letter string. Edit freely — the body copy, the default "why interested" fallback text, etc.
+All templates live in `src/lib/templates.ts`. Each template has a `generate()` function that receives form data and returns the cover letter string. Edit freely - the body copy, the default "why interested" fallback text, etc.
 
 ## Adding a New Template
 
@@ -71,4 +71,4 @@ All templates live in `src/lib/templates.ts`. Each template has a `generate()` f
   generate: ({ companyName, positionName, senderName, ... }) => `...`,
 }
 ```
-It automatically appears in the UI — no other changes needed.
+It automatically appears in the UI - no other changes needed.

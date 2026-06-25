@@ -21,6 +21,8 @@ const defaultForm: CoverLetterFormData = {
     hiringManagerName: "",
     customWhyInterested: "",
     senderName: "Ahshanul Haquc",
+    currentWorkplace: "Softvence IT Ltd",
+    currentDesignation: "Jr. Frontend Developer",
 };
 
 // ─── Main Component ───────────────────────────────────────────────────────────
@@ -134,6 +136,21 @@ export default function CoverLetterApp() {
                                 </div>
 
                                 <InputField
+                                    label="Current Workplace"
+                                    value={form.currentWorkplace}
+                                    onChange={(v) => set("currentWorkplace", v)}
+                                    placeholder="e.g. Softvence IT Ltd."
+                                    error={errors.currentWorkplace}
+                                />
+                                <InputField
+                                    label="Current Designation"
+                                    value={form.currentDesignation}
+                                    onChange={(v) => set("currentDesignation", v)}
+                                    placeholder="e.g. Junior Frontend Developer"
+                                    error={errors.currentDesignation}
+                                />
+
+                                <InputField
                                     label="Your Name"
                                     required
                                     value={form.senderName}
@@ -163,16 +180,16 @@ export default function CoverLetterApp() {
                                         key={tpl.id}
                                         onClick={() => setSelectedId(tpl.id)}
                                         className={`w-full text-left px-3.5 py-3 rounded-xl border-2 transition-all duration-150 ${selectedId === tpl.id
-                                                ? "border-indigo-500 bg-indigo-50/70"
-                                                : "border-transparent bg-slate-50 hover:bg-slate-100"
+                                            ? "border-indigo-500 bg-indigo-50/70"
+                                            : "border-transparent bg-slate-50 hover:bg-slate-100"
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
                                             {/* Radio dot */}
                                             <div
                                                 className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${selectedId === tpl.id
-                                                        ? "border-indigo-500 bg-indigo-500"
-                                                        : "border-slate-300 bg-white"
+                                                    ? "border-indigo-500 bg-indigo-500"
+                                                    : "border-slate-300 bg-white"
                                                     }`}
                                             >
                                                 {selectedId === tpl.id && (
@@ -188,8 +205,8 @@ export default function CoverLetterApp() {
                                                 <div className="flex items-center gap-2 flex-wrap">
                                                     <span
                                                         className={`text-sm font-semibold ${selectedId === tpl.id
-                                                                ? "text-indigo-700"
-                                                                : "text-slate-700"
+                                                            ? "text-indigo-700"
+                                                            : "text-slate-700"
                                                             }`}
                                                     >
                                                         {tpl.name}
@@ -228,8 +245,8 @@ export default function CoverLetterApp() {
                                         <button
                                             onClick={handleCopy}
                                             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold border transition-all duration-200 ${isCopied
-                                                    ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                                                    : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                                : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
                                                 }`}
                                         >
                                             {isCopied ? (
