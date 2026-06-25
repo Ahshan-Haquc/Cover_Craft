@@ -91,11 +91,83 @@ export default function CoverLetterApp() {
       </header>
 
       {/* ── Main Layout ─────────────────────────────────────────────── */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <main className=" mx-auto px-4 sm:px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
 
           {/* ── Left: Controls (2/5) ──────────────────────────────── */}
           <div className="lg:col-span-2 space-y-4">
+            {/* Form Fields */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+                Fill Details
+              </p>
+
+              <div className="space-y-4">
+                <InputField
+                  label="Company Name"
+                  required
+                  value={form.companyName}
+                  onChange={(v) => set("companyName", v)}
+                  placeholder="e.g. Enosis Solutions"
+                  error={errors.companyName}
+                />
+                <InputField
+                  label="Position / Role"
+                  required
+                  value={form.positionName}
+                  onChange={(v) => set("positionName", v)}
+                  placeholder="e.g. Junior Software Engineer"
+                  error={errors.positionName}
+                />
+                <InputField
+                  label="Hiring Manager"
+                  optional
+                  value={form.hiringManagerName}
+                  onChange={(v) => set("hiringManagerName", v)}
+                  placeholder="e.g. Ms. Sarah Khan"
+                  hint="Blank defaults to Hiring Manager"
+                />
+
+                {/* Why interested — textarea */}
+                <div>
+                  <div className="flex items-center gap-1 mb-1.5">
+                    <label className="text-sm font-medium text-slate-700">
+                      Why this company?
+                    </label>
+                    <span className="text-xs text-slate-400 font-normal">
+                      (optional)
+                    </span>
+                  </div>
+                  <textarea
+                    value={form.customWhyInterested}
+                    onChange={(e) => set("customWhyInterested", e.target.value)}
+                    placeholder="e.g. its product-first culture and end-to-end ownership model..."
+                    rows={3}
+                    className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-colors resize-none"
+                  />
+                  <p className="text-xs text-slate-400 mt-1">
+                    A default professional reason is used when left blank.
+                  </p>
+                </div>
+
+                <InputField
+                  label="Your Name"
+                  required
+                  value={form.senderName}
+                  onChange={(v) => set("senderName", v)}
+                  placeholder="Your full name"
+                  error={errors.senderName}
+                />
+
+                <button
+                  onClick={handleGenerate}
+                  className="w-full mt-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold py-3 px-5 rounded-xl transition-all shadow-sm shadow-indigo-200 text-sm"
+                >
+                  <Sparkles className="w-4 h-4" />
+                  Generate Cover Letter
+                </button>
+              </div>
+            </div>
 
             {/* Template Selector */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
@@ -155,79 +227,6 @@ export default function CoverLetterApp() {
                     </div>
                   </button>
                 ))}
-              </div>
-            </div>
-
-            {/* Form Fields */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
-              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
-                Fill Details
-              </p>
-
-              <div className="space-y-4">
-                <InputField
-                  label="Company Name"
-                  required
-                  value={form.companyName}
-                  onChange={(v) => set("companyName", v)}
-                  placeholder="e.g. Enosis Solutions"
-                  error={errors.companyName}
-                />
-                <InputField
-                  label="Position / Role"
-                  required
-                  value={form.positionName}
-                  onChange={(v) => set("positionName", v)}
-                  placeholder="e.g. Junior Software Engineer"
-                  error={errors.positionName}
-                />
-                <InputField
-                  label="Hiring Manager"
-                  optional
-                  value={form.hiringManagerName}
-                  onChange={(v) => set("hiringManagerName", v)}
-                  placeholder="e.g. Ms. Sarah Khan"
-                  hint="Blank defaults to "Hiring Manager""
-                />
-
-                {/* Why interested — textarea */}
-                <div>
-                  <div className="flex items-center gap-1 mb-1.5">
-                    <label className="text-sm font-medium text-slate-700">
-                      Why this company?
-                    </label>
-                    <span className="text-xs text-slate-400 font-normal">
-                      (optional)
-                    </span>
-                  </div>
-                  <textarea
-                    value={form.customWhyInterested}
-                    onChange={(e) => set("customWhyInterested", e.target.value)}
-                    placeholder="e.g. its product-first culture and end-to-end ownership model..."
-                    rows={3}
-                    className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-colors resize-none"
-                  />
-                  <p className="text-xs text-slate-400 mt-1">
-                    A default professional reason is used when left blank.
-                  </p>
-                </div>
-
-                <InputField
-                  label="Your Name"
-                  required
-                  value={form.senderName}
-                  onChange={(v) => set("senderName", v)}
-                  placeholder="Your full name"
-                  error={errors.senderName}
-                />
-
-                <button
-                  onClick={handleGenerate}
-                  className="w-full mt-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-semibold py-3 px-5 rounded-xl transition-all shadow-sm shadow-indigo-200 text-sm"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  Generate Cover Letter
-                </button>
               </div>
             </div>
           </div>
