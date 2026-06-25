@@ -74,13 +74,13 @@ export default function CoverLetterApp() {
     const activeTpl = templates.find((t) => t.id === selectedId);
 
     return (
-        <div className="bg-white">
+        <div className="bg-gray-50">
             {/* ── Main Layout ─────────────────────────────────────────────── */}
             <main className=" mx-auto px-4 sm:px-6 py-8">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                <div className="flex flex-col md:flex-row gap-6">
 
                     {/* ── Left: Controls (2/5) ──────────────────────────────── */}
-                    <div className="lg:col-span-1 space-y-4">
+                    <div className="w-full md:w-68 xl:w-88 space-y-4">
                         {/* Form Fields */}
                         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
                             <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
@@ -229,7 +229,7 @@ export default function CoverLetterApp() {
                     </div>
 
                     {/* ── Right: Preview (3/5) ─────────────────────────────── */}
-                    <div className="lg:col-span-4">
+                    <div className="grow">
                         {output ? (
                             <div className="space-y-3">
                                 {/* Toolbar */}

@@ -27,7 +27,7 @@ export const templates: CoverLetterTemplate[] = [
 
 I am writing to express my interest in the ${positionName} position at ${companyName}.
 
-I have completed my B.Sc. in Computer Science and Engineering from Green University of Bangladesh and am currently working as a ${currentDesignation} at ${currentWorkplace}. In my professional role, I have contributed to the development of production-level SaaS, CRM, healthcare, e-commerce, and multi-tenant applications using modern technologies such as React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL.
+I have completed my B.Sc. in Computer Science and Engineering from Green University of Bangladesh and am currently working as a ${currentDesignation} at ${currentWorkplace}. In my professional role, I have contributed to the development of production-level SaaS, CRM, healthcare, e-commerce, and multi-tenant applications using modern technologies such as React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL and deployed.
 
 Beyond development, I actively practice competitive programming on Codeforces and Leetcode, which has strengthened my understanding of data structures, algorithms, object-oriented programming, and analytical problem-solving. These skills help me approach software challenges systematically and develop efficient, maintainable solutions.
 
@@ -109,7 +109,7 @@ https://ahshanul-haquc.vercel.app`;
 
             return `${greeting}
 
-I am writing to apply for the ${positionName} position at ${companyName}. With a B.Sc. in Computer Science and Engineering from Green University of Bangladesh and professional experience as a ${currentDesignation} at ${currentWorkplace}., I have developed strong, hands-on expertise in building modern, production-ready web applications.
+I am writing to apply for the ${positionName} position at ${companyName}. With a B.Sc. in Computer Science and Engineering from Green University of Bangladesh and professional experience as a ${currentDesignation} at ${currentWorkplace}., I have developed and deployed modern, production-ready web applications.
 
 My primary technical proficiency lies in React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL. In my current role, I have architected and delivered multiple full-stack applications — including multi-tenant SaaS platforms, CRM, healthcare portals, and e-commerce solutions — with a consistent focus on performance optimization, clean component architecture, and maintainable code practices using Redux Toolkit, RTK Query, and Tailwind CSS.
 
