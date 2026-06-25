@@ -72,24 +72,7 @@ export default function CoverLetterApp() {
   const activeTpl = templates.find((t) => t.id === selectedId);
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
-      {/* ── Header ──────────────────────────────────────────────────── */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-sm shadow-indigo-300">
-            <FileText className="w-4 h-4 text-white" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <h1 className="text-base font-bold text-slate-900 tracking-tight">
-              CoverCraft
-            </h1>
-            <span className="hidden sm:block text-xs text-slate-400">
-              — cover letter generator
-            </span>
-          </div>
-        </div>
-      </header>
-
+    <div className="bg-white">
       {/* ── Main Layout ─────────────────────────────────────────────── */}
       <main className=" mx-auto px-4 sm:px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
