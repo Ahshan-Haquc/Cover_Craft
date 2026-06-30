@@ -304,7 +304,7 @@ export default function CoverLetterApp() {
                                     </h3>
                                     <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
                                         Pick a template, fill in the company and role, then hit{" "}
-                                        <strong className="text-slate-500">Generate</strong>.
+                                        <strong className="text-slate-500">Generate your cover letter.</strong>.
                                     </p>
                                 </div>
                             </div>
