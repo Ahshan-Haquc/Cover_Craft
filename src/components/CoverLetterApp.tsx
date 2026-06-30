@@ -294,7 +294,7 @@ export default function CoverLetterApp() {
                             </div>
                         ) : (
                             /* Empty state */
-                            <div className="min-h-[580px] flex items-center justify-center rounded-2xl border-2 border-dashed border-slate-200">
+                            <div className="min-h-[580px] bg-white flex items-center justify-center rounded-2xl border-2 border-dashed border-slate-200">
                                 <div className="text-center px-8">
                                     <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                                         <Sparkles className="w-6 h-6 text-indigo-400" />
