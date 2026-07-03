@@ -27,7 +27,7 @@ export const templates: CoverLetterTemplate[] = [
 
 I am writing to express my interest in the ${positionName} position at ${companyName}.
 
-I have completed my B.Sc. in Computer Science and Engineering from Green University of Bangladesh and am currently working as a ${currentDesignation} at ${currentWorkplace}. In my professional role, I have contributed to the development of production-level SaaS, CRM, healthcare, e-commerce, and multi-tenant applications using modern technologies such as React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL and deployed.
+I have completed my B.Sc. in Computer Science and Engineering from Green University of Bangladesh and am currently working as a ${currentDesignation} at ${currentWorkplace}. In my professional role, I have contributed to the development of production-level SaaS, CRM, healthcare, e-commerce, and multi-tenant applications using modern technologies such as React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL and deployed projects on Linux based VPS using Docker and CI/CD.
 
 Beyond development, I actively practice competitive programming on Codeforces and Leetcode, which has strengthened my understanding of data structures, algorithms, object-oriented programming, and analytical problem-solving. These skills help me approach software challenges systematically and develop efficient, maintainable solutions.
 
