@@ -21,8 +21,8 @@ const defaultForm: CoverLetterFormData = {
     hiringManagerName: "",
     customWhyInterested: "",
     senderName: "Ahshanul Haquc",
-    currentWorkplace: "Softvence IT Ltd",
-    currentDesignation: "Jr. Frontend Developer",
+    currentWorkplace: "Softvence",
+    currentDesignation: "Jr. Full Stack Developer",
 };
 
 // ─── Main Component ───────────────────────────────────────────────────────────
