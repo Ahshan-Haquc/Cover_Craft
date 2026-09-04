@@ -1,5 +1,34 @@
 import type { CoverLetterTemplate, CoverLetterFormData } from "@/types";
 
+export function buildHeader(recruiterEmail?: string, emailSubject?: string): string {
+    const lines: string[] = [];
+    if (recruiterEmail?.trim()) {
+        const email = recruiterEmail.trim();
+        const line = /^(to|recruiter\s*email)\s*:/i.test(email)
+            ? email
+            : `To: ${email}`;
+        lines.push(line);
+    }
+    if (emailSubject?.trim()) {
+        const subject = emailSubject.trim();
+        const line = /^subject\s*:/i.test(subject)
+            ? subject
+            : `Subject: ${subject}`;
+        lines.push(line);
+    }
+    return lines.length > 0 ? lines.join("\n") + "\n\n" : "";
+}
+
+export function formatSalary(expectedSalary?: string): string {
+    if (!expectedSalary || !expectedSalary.trim()) return "";
+    const trimmed = expectedSalary.trim();
+    if (/^my expected salary/i.test(trimmed)) {
+        return trimmed.endsWith(".") ? trimmed : `${trimmed}.`;
+    }
+    const cleaned = trimmed.replace(/\s*bdt\s*$/i, "").trim();
+    return `My expected salary is ${cleaned} BDT.`;
+}
+
 export const templates: CoverLetterTemplate[] = [
     {
         id: "standard",
@@ -8,6 +37,9 @@ export const templates: CoverLetterTemplate[] = [
         badge: "Original",
         badgeColor: "bg-violet-100 text-violet-600",
         generate: ({
+            recruiterEmail,
+            emailSubject,
+            expectedSalary,
             companyName,
             positionName,
             hiringManagerName,
@@ -16,14 +48,17 @@ export const templates: CoverLetterTemplate[] = [
             currentWorkplace, 
             currentDesignation
         }: CoverLetterFormData): string => {
+            const header = buildHeader(recruiterEmail, emailSubject);
             const greeting = hiringManagerName.trim()
                 ? `Dear ${hiringManagerName},`
                 : "Dear Hiring Manager,";
             const interest = customWhyInterested.trim()
                 ? customWhyInterested.trim()
                 : `its strong engineering culture, commitment to quality software development, and opportunities to work on impactful projects for global clients`;
+            const salarySentence = formatSalary(expectedSalary);
+            const salarySuffix = salarySentence ? ` ${salarySentence}` : "";
 
-            return `${greeting}
+            return `${header}${greeting}
 
 I am writing to express my interest in the ${positionName} position at ${companyName}.
 
@@ -31,7 +66,7 @@ I have completed my B.Sc. in Computer Science and Engineering from Green Univers
 
 Beyond development, I actively practice competitive programming on Codeforces and Leetcode, which has strengthened my understanding of data structures, algorithms, object-oriented programming, and analytical problem-solving. These skills help me approach software challenges systematically and develop efficient, maintainable solutions.
 
-I am particularly interested in ${companyName} because of ${interest}. I am confident that my technical background, problem-solving ability, eagerness to learn, and experience collaborating within professional development teams would allow me to contribute effectively to your organization.
+I am particularly interested in ${companyName} because of ${interest}. I am confident that my technical background, problem-solving ability, eagerness to learn, and experience collaborating within professional development teams would allow me to contribute effectively to your organization.${salarySuffix}
 
 Thank you for your time and consideration. I would welcome the opportunity to discuss how my skills and experiences align with the ${positionName} position at ${companyName}.
 
@@ -52,6 +87,9 @@ https://ahshanul-haquc.vercel.app`;
         badge: "Modern",
         badgeColor: "bg-sky-100 text-sky-600",
         generate: ({
+            recruiterEmail,
+            emailSubject,
+            expectedSalary,
             companyName,
             positionName,
             hiringManagerName,
@@ -60,20 +98,23 @@ https://ahshanul-haquc.vercel.app`;
             currentWorkplace, 
             currentDesignation
         }: CoverLetterFormData): string => {
+            const header = buildHeader(recruiterEmail, emailSubject);
             const greeting = hiringManagerName.trim()
                 ? `Dear ${hiringManagerName},`
                 : "Dear Hiring Manager,";
             const interest = customWhyInterested.trim()
                 ? customWhyInterested.trim()
                 : `its reputation for building high-quality software products and fostering a strong engineering culture`;
+            const salarySentence = formatSalary(expectedSalary);
+            const salarySuffix = salarySentence ? ` ${salarySentence}` : "";
 
-            return `${greeting}
+            return `${header}${greeting}
 
-I am excited to apply for the ${positionName} position at ${companyName}. As a ${currentDesignation} at ${currentWorkplace}., I have hands-on experience shipping production-grade SaaS, CRM, healthcare, and e-commerce platforms - and I am looking for the right team to grow with.
+I am excited to apply for the ${positionName} position at ${companyName}. As a ${currentDesignation} at ${currentWorkplace}, I have hands-on experience shipping production-grade SaaS, CRM, healthcare, and e-commerce platforms - and I am looking for the right team to grow with.
 
 My stack - React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL - maps closely to modern full-stack development needs. Competitive programming on Codeforces keeps my algorithmic thinking sharp and translates directly into cleaner, more efficient code.
 
-${companyName} stands out to me because of ${interest}. I am confident I can contribute meaningfully from day one while continuing to grow alongside your team.
+${companyName} stands out to me because of ${interest}. I am confident I can contribute meaningfully from day one while continuing to grow alongside your team.${salarySuffix}
 
 I would love the opportunity to discuss the ${positionName} role further. Thank you for your consideration.
 
@@ -94,6 +135,9 @@ https://ahshanul-haquc.vercel.app`;
         badge: "Dev-Focused",
         badgeColor: "bg-emerald-100 text-emerald-600",
         generate: ({
+            recruiterEmail,
+            emailSubject,
+            expectedSalary,
             companyName,
             positionName,
             hiringManagerName,
@@ -102,22 +146,25 @@ https://ahshanul-haquc.vercel.app`;
             currentWorkplace, 
             currentDesignation
         }: CoverLetterFormData): string => {
+            const header = buildHeader(recruiterEmail, emailSubject);
             const greeting = hiringManagerName.trim()
                 ? `Dear ${hiringManagerName},`
                 : "Dear Hiring Manager,";
             const interest = customWhyInterested.trim()
                 ? customWhyInterested.trim()
                 : `its technically challenging projects, collaborative engineering environment, and focus on delivering high-quality software solutions`;
+            const salarySentence = formatSalary(expectedSalary);
+            const salarySuffix = salarySentence ? ` ${salarySentence}` : "";
 
-            return `${greeting}
+            return `${header}${greeting}
 
-I am writing to apply for the ${positionName} position at ${companyName}. With a B.Sc. in Computer Science and Engineering from Green University of Bangladesh and professional experience as a ${currentDesignation} at ${currentWorkplace}., I have developed and deployed modern, production-ready web applications.
+I am writing to apply for the ${positionName} position at ${companyName}. With a B.Sc. in Computer Science and Engineering from Green University of Bangladesh and professional experience as a ${currentDesignation} at ${currentWorkplace}, I have developed and deployed modern, production-ready web applications.
 
 My primary technical proficiency lies in React.js, Next.js, Redux, TypeScript, Node.js, Express.js, MongoDB, and MySQL. In my current role, I have architected and delivered multiple full-stack applications — including multi-tenant SaaS platforms, CRM, healthcare portals, and e-commerce solutions — with a consistent focus on performance optimization, clean component architecture, and maintainable code practices using Redux Toolkit, RTK Query, and Tailwind CSS.
 
 I complement my development work with competitive programming on Codeforces and Leetcode, which has deepened my understanding of data structures, algorithms, and problem decomposition. These skills translate directly into writing efficient, scalable software and approaching engineering challenges with both analytical rigor and creative thinking.
 
-I am particularly drawn to ${companyName} because of ${interest}. I am eager to bring my skills, strong work ethic, and collaborative mindset to your engineering team and contribute to building exceptional software products.
+I am particularly drawn to ${companyName} because of ${interest}. I am eager to bring my skills, strong work ethic, and collaborative mindset to your engineering team and contribute to building exceptional software products.${salarySuffix}
 
 Thank you for considering my application. I would be glad to discuss how my technical background aligns with the requirements of the ${positionName} role at ${companyName}.
 
