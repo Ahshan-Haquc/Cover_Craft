@@ -143,7 +143,8 @@ export default function CoverLetterApp() {
                                     optional
                                     value={form.expectedSalary}
                                     onChange={(v) => set("expectedSalary", v)}
-                                    placeholder="Expected salary"
+                                    placeholder="e.g. 40,000"
+                                    hint="Appends 'My expected salary is X BDT' to interest paragraph"
                                     error={errors.expectedSalary}
                                 />
 
@@ -152,7 +153,8 @@ export default function CoverLetterApp() {
                                     optional
                                     value={form.recruiterEmail}
                                     onChange={(v) => set("recruiterEmail", v)}
-                                    placeholder="Recruiter email address"
+                                    placeholder="e.g. hr@company.com"
+                                    hint="Displays at top of cover letter"
                                     error={errors.recruiterEmail}
                                 />
 
@@ -161,7 +163,8 @@ export default function CoverLetterApp() {
                                     optional
                                     value={form.emailSubject}
                                     onChange={(v) => set("emailSubject", v)}
-                                    placeholder="Email subject"
+                                    placeholder="e.g. Application for Frontend Role - Ahshanul Haque"
+                                    hint="Displays at top of cover letter"
                                     error={errors.emailSubject}
                                 />
 
@@ -396,6 +399,38 @@ function LetterPreview({ content }: LetterPreviewProps) {
                 const trimmed = para.trim();
                 if (!trimmed) return null;
 
+                // Header block (To: / Subject:)
+                if (trimmed.startsWith("To:") || trimmed.startsWith("Subject:")) {
+                    const lines = trimmed.split("\n");
+                    return (
+                        <div
+                            key={i}
+                            className="mb-6 pb-4 border-b border-slate-200 text-sm font-sans space-y-1.5 text-slate-600"
+                        >
+                            {lines.map((line, idx) => {
+                                const colonIdx = line.indexOf(":");
+                                if (colonIdx !== -1) {
+                                    const label = line.slice(0, colonIdx + 1);
+                                    const value = line.slice(colonIdx + 1).trim();
+                                    return (
+                                        <p key={idx} className="leading-relaxed">
+                                            <span className="font-semibold text-slate-800 mr-1.5">
+                                                {label}
+                                            </span>
+                                            <span className="text-slate-700">{value}</span>
+                                        </p>
+                                    );
+                                }
+                                return (
+                                    <p key={idx} className="leading-relaxed text-slate-700">
+                                        {line}
+                                    </p>
+                                );
+                            })}
+                        </div>
+                    );
+                }
+
                 // Closing block: "Sincerely,\nName"
                 if (trimmed.startsWith("Sincerely")) {
                     const lines = trimmed.split("\n");
@@ -419,7 +454,7 @@ function LetterPreview({ content }: LetterPreviewProps) {
                 }
 
                 // Greeting: "Dear Hiring Manager,"
-                if (i === 0) {
+                if (trimmed.startsWith("Dear ") || i === 0) {
                     return (
                         <p
                             key={i}
