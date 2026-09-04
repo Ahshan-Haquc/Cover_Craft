@@ -16,10 +16,13 @@ import { generateCoverLetterPdf } from "@/lib/generatePdf";
 
 // ─── Default form state ───────────────────────────────────────────────────────
 const defaultForm: CoverLetterFormData = {
+    recruiterEmail: "",
+    emailSubject: "",
     companyName: "",
     positionName: "",
     hiringManagerName: "",
     customWhyInterested: "",
+    expectedSalary: "",
     senderName: "Ahshanul Haquc",
     currentWorkplace: "Softvence",
     currentDesignation: "Jr. Full Stack Developer",
@@ -136,6 +139,33 @@ export default function CoverLetterApp() {
                                 </div>
 
                                 <InputField
+                                    label="Expected Salary"
+                                    optional
+                                    value={form.expectedSalary}
+                                    onChange={(v) => set("expectedSalary", v)}
+                                    placeholder="Expected salary"
+                                    error={errors.expectedSalary}
+                                />
+
+                                <InputField
+                                    label="Recruiter Email"
+                                    optional
+                                    value={form.recruiterEmail}
+                                    onChange={(v) => set("recruiterEmail", v)}
+                                    placeholder="Recruiter email address"
+                                    error={errors.recruiterEmail}
+                                />
+
+                                <InputField
+                                    label="Email Subject"
+                                    optional
+                                    value={form.emailSubject}
+                                    onChange={(v) => set("emailSubject", v)}
+                                    placeholder="Email subject"
+                                    error={errors.emailSubject}
+                                />
+
+                                <InputField
                                     label="Current Workplace"
                                     value={form.currentWorkplace}
                                     onChange={(v) => set("currentWorkplace", v)}
@@ -148,15 +178,6 @@ export default function CoverLetterApp() {
                                     onChange={(v) => set("currentDesignation", v)}
                                     placeholder="e.g. Junior Frontend Developer"
                                     error={errors.currentDesignation}
-                                />
-
-                                <InputField
-                                    label="Your Name"
-                                    required
-                                    value={form.senderName}
-                                    onChange={(v) => set("senderName", v)}
-                                    placeholder="Your full name"
-                                    error={errors.senderName}
                                 />
 
                                 <button
@@ -320,7 +341,7 @@ export default function CoverLetterApp() {
 
 interface InputFieldProps {
     label: string;
-    value: string;
+    value?: string;
     onChange: (v: string) => void;
     placeholder?: string;
     required?: boolean;

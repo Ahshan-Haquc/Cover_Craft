@@ -1,4 +1,4 @@
-# CoverCraft — Cover Letter Generator
+# CoverCraft - Cover Letter Generator
 
 A personal Next.js app that lets you generate tailored cover letters in seconds - no database, no backend. Just fill in the fields, pick a template, copy or download as PDF.
 

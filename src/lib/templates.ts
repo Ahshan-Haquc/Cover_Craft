@@ -4,7 +4,7 @@ export const templates: CoverLetterTemplate[] = [
     {
         id: "standard",
         name: "Standard Professional",
-        description: "Your original letter — balanced, warm, and complete.",
+        description: "Your original letter - balanced, warm, and complete.",
         badge: "Original",
         badgeColor: "bg-violet-100 text-violet-600",
         generate: ({
@@ -40,6 +40,7 @@ ${senderName}
 +880 1568222565
 ahshanulhaqucgub@gmail.com
 https://github.com/Ahshan-Haquc
+https://www.linkedin.com/in/ahshanul-haquc-82382a337/
 https://ahshanul-haquc.vercel.app`;
         },
     },
@@ -81,6 +82,7 @@ ${senderName}
 +880 1568222565
 ahshanulhaqucgub@gmail.com
 https://github.com/Ahshan-Haquc
+https://www.linkedin.com/in/ahshanul-haquc-82382a337/
 https://ahshanul-haquc.vercel.app`;
         },
     },
@@ -124,6 +126,7 @@ ${senderName}
 +880 1568222565
 ahshanulhaqucgub@gmail.com
 https://github.com/Ahshan-Haquc
+https://www.linkedin.com/in/ahshanul-haquc-82382a337/
 https://ahshanul-haquc.vercel.app`;
 
         },
